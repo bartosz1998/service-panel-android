@@ -7,10 +7,6 @@
     android:visibility="visible"
     tools:context=".MainActivity">
 
-    <include
-        android:id="@+id/toolbar"
-        layout="@layout/toolbar" />
-
     <Button
         android:id="@+id/button"
         android:layout_width="150dp"
@@ -20,8 +16,8 @@
         android:onClick="onRegisterBtnClick"
         android:text="Zaloguj"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/editTextPassword"
+        app:layout_constraintStart_toStartOf="@+id/editTextPassword"
         app:layout_constraintTop_toBottomOf="@+id/editTextPassword"
         app:layout_constraintVertical_bias="0.0" />
 
@@ -36,7 +32,7 @@
         android:minHeight="48dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/toolbar"
+        app:layout_constraintTop_toTopOf="parent"
         tools:ignore="MissingConstraints" />
 
     <EditText
@@ -48,8 +44,8 @@
         android:hint="hasło"
         android:inputType="textPersonName"
         android:minHeight="48dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/editTextLogin"
+        app:layout_constraintStart_toStartOf="@+id/editTextLogin"
         app:layout_constraintTop_toBottomOf="@+id/editTextLogin" />
 
     <TextView
@@ -58,8 +54,8 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="50dp"
         android:text="TextViewLogin"
-        app:layout_constraintEnd_toEndOf="@+id/button"
-        app:layout_constraintStart_toStartOf="@+id/button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/button" />
 
     <TextView
@@ -68,8 +64,8 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="50dp"
         android:text="TextViewPassword"
-        app:layout_constraintEnd_toEndOf="@+id/textView"
-        app:layout_constraintStart_toStartOf="@+id/textView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView" />
 
 
