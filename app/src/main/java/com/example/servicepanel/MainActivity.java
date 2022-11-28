@@ -2,6 +2,7 @@ package com.example.servicepanel;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
@@ -15,14 +16,17 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
     }
 
-    public void onRegisterBtnClick (View view){
-        TextView txtLogin = findViewById(R.id.textView);
-        TextView txtPassword = findViewById(R.id.textView2);
+     public void onRegisterBtnClick (View view){
+//        TextView txtLogin = findViewById(R.id.textView);
+//        TextView txtPassword = findViewById(R.id.textView2);
+//
+//        EditText edtTxtLogin = findViewById(R.id.editTextLogin);
+//        EditText edtTxtPassword = findViewById(R.id.editTextPassword);
+//
+//        txtLogin.setText(edtTxtLogin.getText().toString());
+//        txtPassword.setText(edtTxtPassword.getText().toString());
 
-        EditText edtTxtLogin = findViewById(R.id.editTextLogin);
-        EditText edtTxtPassword = findViewById(R.id.editTextPassword);
-
-        txtLogin.setText(edtTxtLogin.getText().toString());
-        txtPassword.setText(edtTxtPassword.getText().toString());
-    }
+         Intent intent = new Intent(MainActivity.this,MainActivity2.class);
+         startActivity(intent);
+}
 }
