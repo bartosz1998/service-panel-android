@@ -2,11 +2,15 @@ package com.example.servicepanel;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
+
+import java.util.Arrays;
+import java.util.Objects;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -16,17 +20,38 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
     }
 
-     public void onRegisterBtnClick (View view){
-//        TextView txtLogin = findViewById(R.id.textView);
-//        TextView txtPassword = findViewById(R.id.textView2);
-//
-//        EditText edtTxtLogin = findViewById(R.id.editTextLogin);
-//        EditText edtTxtPassword = findViewById(R.id.editTextPassword);
-//
-//        txtLogin.setText(edtTxtLogin.getText().toString());
-//        txtPassword.setText(edtTxtPassword.getText().toString());
+    String[][] loginData = {
+            {"1","kowalski@essystemk.pl","one"},
+            {"2","nowak@essystemk.pl","two"},
+    };
 
-         Intent intent = new Intent(MainActivity.this,MainActivity2.class);
-         startActivity(intent);
-}
+     @SuppressLint("SetTextI18n")
+     public void onRegisterBtnClick (View view){
+         TextView txtLogin = findViewById(R.id.textView);
+        TextView txtPassword = findViewById(R.id.textView2);
+
+         String login = "kowalski@essystemk.pl";
+         String password = "one";
+
+         EditText edtTxtLogin = findViewById(R.id.editTextLogin);
+         EditText edtTxtPassword = findViewById(R.id.editTextPassword);
+
+
+
+//         login = edtTxtLogin.getText().toString();
+//         password = edtTxtPassword.getText().toString();
+
+         for(int i = 1; i < loginData.length; i++){
+             if(login == loginData[i][1]){
+                Intent intent = new Intent(MainActivity.this,MainActivity2.class);
+                startActivity(intent);
+             }else{
+                txtLogin.setText("Blad hasla lub loginu");
+             }
+         }
+//             if(Objects.equals(loginData[i][1], login) && Objects.equals(loginData[i][2], password)){
+//                     Intent intent = new Intent(MainActivity.this,MainActivity2.class);
+//                     startActivity(intent);
+//             }
+         }
 }
