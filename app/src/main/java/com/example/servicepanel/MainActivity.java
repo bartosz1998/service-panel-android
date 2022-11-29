@@ -32,17 +32,25 @@ public class MainActivity extends AppCompatActivity {
          EditText edtTxtLogin = findViewById(R.id.editTextLogin);
          EditText edtTxtPassword = findViewById(R.id.editTextPassword);
 
-
          String login = edtTxtLogin.getText().toString();
          String password = edtTxtPassword.getText().toString();
 
+         boolean loginValue = false;
+         boolean passwordValue = false;
+
          for(int i = 0; i < loginData.length; i++){
+             loginValue = loginData[i][1].equals(login);
+             passwordValue = loginData[i][2].equals(password);
              if(loginData[i][1].equals(login) && loginData[i][2].equals(password)){
                 Intent intent = new Intent(MainActivity.this,MainActivity2.class);
                 startActivity(intent);
                 break;
-             }else{
-                txtLogin.setText("Wpisz poprawny login lub haslo");
              }
-         }}
+         }
+
+         if(loginValue == false || passwordValue == false){
+             txtLogin.setText("Wpisz poprawny login lub haslo");
+         }
+
+     }
 }
