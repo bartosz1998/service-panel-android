@@ -27,34 +27,22 @@ public class MainActivity extends AppCompatActivity {
 
      @SuppressLint("SetTextI18n")
      public void onRegisterBtnClick (View view){
-
          TextView txtLogin = findViewById(R.id.textView);
-        TextView txtPassword = findViewById(R.id.textView2);
-
-         //String login = "";
-         String password = "one";
 
          EditText edtTxtLogin = findViewById(R.id.editTextLogin);
          EditText edtTxtPassword = findViewById(R.id.editTextPassword);
 
 
          String login = edtTxtLogin.getText().toString();
-         password = edtTxtPassword.getText().toString();
-
-         txtPassword.setText(login);
+         String password = edtTxtPassword.getText().toString();
 
          for(int i = 0; i < loginData.length; i++){
-             if(login.equals(loginData[i][1])){
+             if(loginData[i][1].equals(login) && loginData[i][2].equals(password)){
                 Intent intent = new Intent(MainActivity.this,MainActivity2.class);
                 startActivity(intent);
                 break;
              }else{
                 txtLogin.setText("Wpisz poprawny login lub haslo");
              }
-         }
-//             if(Objects.equals(loginData[i][1], login) && Objects.equals(loginData[i][2], password)){
-//                     Intent intent = new Intent(MainActivity.this,MainActivity2.class);
-//                     startActivity(intent);
-//             }
-         }
+         }}
 }
