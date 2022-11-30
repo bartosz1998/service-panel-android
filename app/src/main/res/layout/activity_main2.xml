@@ -32,7 +32,7 @@
            android:layout_column="1" />
    </TableRow>
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rectcler_view"
+        android:id="@+id/tabeleView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         />
