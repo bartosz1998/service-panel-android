@@ -36,6 +36,11 @@ public class MainActivity2 extends AppCompatActivity {
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setItemAnimator(new DefaultItemAnimator());
         recyclerView.setAdapter(adapter);
+
+        findViewById(R.id.add).setOnClickListener(view -> {
+            usersList.add(new User("john"));
+            adapter.notifyItemRemoved(usersList.size()-1);
+        });
     }
 
     private void setOnClickListener() {

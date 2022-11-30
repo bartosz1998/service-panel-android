@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
 
+
 public class recyclerAdapter extends RecyclerView.Adapter<recyclerAdapter.MyViewHolder> {
     private ArrayList<User> usersList;
     private RecyclerViewClickListener listener;
@@ -21,13 +22,24 @@ public class recyclerAdapter extends RecyclerView.Adapter<recyclerAdapter.MyView
 
     public class MyViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
         private TextView nameTxt;
+        private recyclerAdapter  adapter;
 
         public  MyViewHolder(final View view){
             super(view);
             nameTxt = view.findViewById(R.id.textView3);
+
+            view.findViewById(R.id.delete).setOnClickListener(itemView -> {
+                adapter.usersList.remove(getAdapterPosition());
+                adapter.notifyItemRemoved(getAdapterPosition());
+            });
+
             view.setOnClickListener(this);
         }
 
+        public MyViewHolder linkAdapter(recyclerAdapter  adapter){
+            this.adapter = adapter;
+            return this;
+        }
 
         @Override
         public void onClick(View view) {
@@ -39,7 +51,8 @@ public class recyclerAdapter extends RecyclerView.Adapter<recyclerAdapter.MyView
     @Override
     public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View itemView = LayoutInflater.from(parent.getContext()).inflate(R.layout.list_items, parent, false);
-        return new MyViewHolder(itemView);
+        //return new MyViewHolder(itemView);
+        return new MyViewHolder(itemView).linkAdapter(this);
     }
 
     @Override
