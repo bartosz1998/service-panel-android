@@ -38,7 +38,7 @@ public class MainActivity2 extends AppCompatActivity {
         recyclerView.setAdapter(adapter);
 
         findViewById(R.id.add).setOnClickListener(view -> {
-            usersList.add(new User("john"));
+            usersList.add(new User("1","warszawa","oczekiwanie","warszawa"));
             adapter.notifyItemRemoved(usersList.size()-1);
         });
     }
@@ -48,15 +48,15 @@ public class MainActivity2 extends AppCompatActivity {
             @Override
             public void onClick(View v, int position) {
                 Intent intent = new Intent(getApplicationContext(), ProfileActivity.class);
-                intent.putExtra("username", usersList.get(position).getUserName());
+                intent.putExtra("username", usersList.get(position).getId());
                 startActivity(intent);
             }
         };
     }
 
     private void setUserInfo(){
-        usersList.add(new User("john"));
-        usersList.add(new User("bob"));
-        usersList.add(new User("Aliece"));
+        usersList.add(new User("1","Krakow","Zakończono","kraków"));
+        usersList.add(new User("1","Krakow","Zakończono","kraków"));
+        usersList.add(new User("1","Krakow","Zakończono","kraków"));
     }
 }

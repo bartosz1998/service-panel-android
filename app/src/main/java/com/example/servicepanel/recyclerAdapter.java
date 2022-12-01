@@ -21,17 +21,21 @@ public class recyclerAdapter extends RecyclerView.Adapter<recyclerAdapter.MyView
     }
 
     public class MyViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
-        private TextView nameTxt;
+        private TextView id_tv,name_tv,object_tv,status_tv;
         private recyclerAdapter  adapter;
 
         public  MyViewHolder(final View view){
             super(view);
-            nameTxt = view.findViewById(R.id.textView3);
+            id_tv = view.findViewById(R.id.id_tv);
+            name_tv = view.findViewById(R.id.name_tv);
+            object_tv = view.findViewById(R.id.object_tv);
+            status_tv = view.findViewById(R.id.status_tv);
 
-            view.findViewById(R.id.delete).setOnClickListener(itemView -> {
+
+            /*view.findViewById(R.id.delete).setOnClickListener(itemView -> {
                 adapter.usersList.remove(getAdapterPosition());
                 adapter.notifyItemRemoved(getAdapterPosition());
-            });
+            });*/
 
             view.setOnClickListener(this);
         }
@@ -57,8 +61,17 @@ public class recyclerAdapter extends RecyclerView.Adapter<recyclerAdapter.MyView
 
     @Override
     public void onBindViewHolder(@NonNull recyclerAdapter.MyViewHolder holder, int position) {
-        String name = usersList.get(position).getUserName();
-        holder.nameTxt.setText(name);
+        //String name = usersList.get(position).getUserName();
+        //holder.nameTxt.setText(name);
+        String id = usersList.get(position).getId();
+        holder.id_tv.setText(id);
+        String name = usersList.get(position).getName();
+        holder.name_tv.setText(name);
+        String object = usersList.get(position).getObject();
+        holder.object_tv.setText(object);
+        String status = usersList.get(position).getStatus();
+        holder.status_tv.setText(status);
+
     }
 
     @Override
