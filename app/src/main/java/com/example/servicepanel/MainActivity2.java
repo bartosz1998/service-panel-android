@@ -52,7 +52,10 @@ public class MainActivity2 extends AppCompatActivity {
             @Override
             public void onClick(View v, int position) {
                 Intent intent = new Intent(getApplicationContext(), ProfileActivity.class);
-                intent.putExtra("username", usersList.get(position).getId());
+                intent.putExtra("id", usersList.get(position).getId());
+                intent.putExtra("name", usersList.get(position).getName());
+                intent.putExtra("object", usersList.get(position).getObject());
+                intent.putExtra("status", usersList.get(position).getStatus());
                 startActivity(intent);
             }
         };
