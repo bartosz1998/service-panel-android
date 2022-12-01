@@ -27,6 +27,13 @@ public class MainActivity2 extends AppCompatActivity {
 
         setUserInfo();
         setAdapter();
+
+        findViewById(R.id.add).setOnClickListener(view -> {
+            //usersList.add(new User("1","Żabka","oczekiwanie","warszawa"));
+            //adapter.notifyItemRemoved(usersList.size()-1);
+            Intent intent = new Intent(this,Add_Event.class);
+            startActivity(intent);
+        });
     }
 
     private void setAdapter(){
@@ -37,10 +44,7 @@ public class MainActivity2 extends AppCompatActivity {
         recyclerView.setItemAnimator(new DefaultItemAnimator());
         recyclerView.setAdapter(adapter);
 
-        findViewById(R.id.add).setOnClickListener(view -> {
-            usersList.add(new User("1","Żabka","oczekiwanie","warszawa"));
-            adapter.notifyItemRemoved(usersList.size()-1);
-        });
+
     }
 
     private void setOnClickListener() {

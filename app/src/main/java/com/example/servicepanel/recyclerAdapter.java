@@ -31,12 +31,6 @@ public class recyclerAdapter extends RecyclerView.Adapter<recyclerAdapter.MyView
             object_tv = view.findViewById(R.id.object_tv);
             status_tv = view.findViewById(R.id.status_tv);
 
-
-            /*view.findViewById(R.id.delete).setOnClickListener(itemView -> {
-                adapter.usersList.remove(getAdapterPosition());
-                adapter.notifyItemRemoved(getAdapterPosition());
-            });*/
-
             view.setOnClickListener(this);
         }
 
@@ -55,14 +49,11 @@ public class recyclerAdapter extends RecyclerView.Adapter<recyclerAdapter.MyView
     @Override
     public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View itemView = LayoutInflater.from(parent.getContext()).inflate(R.layout.list_items, parent, false);
-        //return new MyViewHolder(itemView);
         return new MyViewHolder(itemView).linkAdapter(this);
     }
 
     @Override
     public void onBindViewHolder(@NonNull recyclerAdapter.MyViewHolder holder, int position) {
-        //String name = usersList.get(position).getUserName();
-        //holder.nameTxt.setText(name);
         String id = usersList.get(position).getId();
         holder.id_tv.setText(id);
         String name = usersList.get(position).getName();
