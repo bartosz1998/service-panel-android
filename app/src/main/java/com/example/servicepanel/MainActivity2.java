@@ -38,7 +38,7 @@ public class MainActivity2 extends AppCompatActivity {
         recyclerView.setAdapter(adapter);
 
         findViewById(R.id.add).setOnClickListener(view -> {
-            usersList.add(new User("1","warszawa","oczekiwanie","warszawa"));
+            usersList.add(new User("1","Żabka","oczekiwanie","warszawa"));
             adapter.notifyItemRemoved(usersList.size()-1);
         });
     }
@@ -55,8 +55,8 @@ public class MainActivity2 extends AppCompatActivity {
     }
 
     private void setUserInfo(){
-        usersList.add(new User("1","Krakow","Zakończono","kraków"));
-        usersList.add(new User("1","Krakow","Zakończono","kraków"));
-        usersList.add(new User("1","Krakow","Zakończono","kraków"));
+        usersList.add(new User("1","Żabka","Zakończono","kraków"));
+        usersList.add(new User("2","Auchan","W trakcie","Warszawa"));
+        usersList.add(new User("3","Auchan","Oczekiwanie","Sosnowiec"));
     }
 }
