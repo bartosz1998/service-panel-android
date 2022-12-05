@@ -13,7 +13,7 @@
         android:theme="@style/Theme.ServicePanel"
         tools:targetApi="31">
         <activity
-            android:name=".MainActivity2"
+            android:name=".AddNewUserActivity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
@@ -32,9 +32,8 @@
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
-        <activity android:name=".ProfileActivity"/>
         <activity
-            android:name=".Add_Event"
+            android:name=".ListActivity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"

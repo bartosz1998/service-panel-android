@@ -42,7 +42,7 @@ public class MainActivity extends AppCompatActivity {
              loginValue = loginData[i][1].equals(login);
              passwordValue = loginData[i][2].equals(password);
              if(loginData[i][1].equals(login) && loginData[i][2].equals(password)){
-                Intent intent = new Intent(MainActivity.this,MainActivity2.class);
+                Intent intent = new Intent(MainActivity.this,ListActivity.class);
                 startActivity(intent);
                 break;
              }

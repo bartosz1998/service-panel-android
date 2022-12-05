@@ -11,4 +11,5 @@
     <color name="colorPrimaryDark">#343a40</color>
     <color name="colorAccent">#FFBB86FC</color>
     <color name="colorRed">#FF0000</color>
+    <color name="buttonLabel">#FFFFFF</color>
 </resources>
