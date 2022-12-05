@@ -17,12 +17,8 @@ public class AddNewUserActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_new_user);
 
-        //final EditText firstNameInput = findViewById(R.id.firstNameInput);
         final EditText lastNameInput = findViewById(R.id.lastNameInput);
         final EditText firstNameInput = findViewById(R.id.firstNameInput);
-
-        /*Button saveButton = findViewById(R.id.saveButton);
-        saveButton.setOnClickListener(v -> saveNewUser(firstNameInput.getText().toString(), lastNameInput.getText().toString()));*/
 
         Button saveButton = findViewById(R.id.saveButton);
         saveButton.setOnClickListener(new View.OnClickListener() {
@@ -38,8 +34,8 @@ public class AddNewUserActivity extends AppCompatActivity {
         AppDatabase db = AppDatabase.getDbInstance(this.getApplicationContext());
 
         User user = new User();
-        user.firstName = firstName;
-        user.lastName = lastName;
+        user.eventName = firstName;
+        user.eventDate = lastName;
         db.userDao().insertUser(user);
 
         finish();

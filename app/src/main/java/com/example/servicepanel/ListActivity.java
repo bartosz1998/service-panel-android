@@ -20,7 +20,7 @@ import com.example.servicepanel.db.User;
 
 import java.util.List;
 
-import javax.annotation.Nullable;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 public class ListActivity extends AppCompatActivity {
     private UserListAdapter userListAdapter;
@@ -30,7 +30,7 @@ public class ListActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.list_activity);
 
-        Button addNewUserButton = findViewById(R.id.addNewUserButton);
+        FloatingActionButton addNewUserButton = findViewById(R.id.addNewUserButton);
         addNewUserButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -60,15 +60,6 @@ public class ListActivity extends AppCompatActivity {
         List<User> userList = db.userDao().getAllUsers();
         userListAdapter.setUserList(userList);
     }
-
-    /*@Override
-    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data){
-        if(requestCode == 100){
-            loadUserList();
-        }
-
-        super.onActivityResult(requestCode,resultCode,data);
-    }*/
 
     ActivityResultLauncher<Intent> someActivityResultLauncher = registerForActivityResult(
             new ActivityResultContracts.StartActivityForResult(),
