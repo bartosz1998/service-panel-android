@@ -5,17 +5,19 @@ import androidx.room.Delete;
 import androidx.room.Insert;
 import androidx.room.Query;
 
+import com.example.servicepanel.db.DataEvent;
+
 import java.util.List;
 
 @Dao
 public interface UserDao {
 
-    @Query("SELECT * FROM user")
-    List<User> getAllUsers();
+    @Query("SELECT * FROM dataEvent")
+    List<DataEvent> getAllUsers();
 
     @Insert
-    void insertUser(User... users);
+    void insertUser(DataEvent... dataEvent);
 
     @Delete
-    void delete (User user);
+    void delete (DataEvent dataEvent);
 }

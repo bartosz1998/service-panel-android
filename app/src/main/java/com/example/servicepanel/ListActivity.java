@@ -1,10 +1,8 @@
 package com.example.servicepanel;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
 
 import androidx.activity.result.ActivityResult;
 import androidx.activity.result.ActivityResultCallback;
@@ -16,7 +14,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.servicepanel.db.AppDatabase;
-import com.example.servicepanel.db.User;
+import com.example.servicepanel.db.DataEvent;
 
 import java.util.List;
 
@@ -57,7 +55,7 @@ public class ListActivity extends AppCompatActivity {
 
     private void loadUserList(){
         AppDatabase db = AppDatabase.getDbInstance(this.getApplicationContext());
-        List<User> userList = db.userDao().getAllUsers();
+        List<DataEvent> userList = db.userDao().getAllUsers();
         userListAdapter.setUserList(userList);
     }
 

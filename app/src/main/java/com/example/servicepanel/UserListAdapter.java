@@ -11,20 +11,20 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.servicepanel.db.User;
+import com.example.servicepanel.db.DataEvent;
 
 import java.util.List;
 
 public class UserListAdapter extends RecyclerView.Adapter<UserListAdapter.MyViewHolder> {
 
     private Context context;
-    private List<User> userList;
+    private List<DataEvent> userList;
 
     public UserListAdapter(Context context){
        this.context = context;
     }
 
-    public void setUserList(List<User> userList){
+    public void setUserList(List<DataEvent> userList){
         this.userList = userList;
         notifyDataSetChanged();
     }
@@ -40,7 +40,7 @@ public class UserListAdapter extends RecyclerView.Adapter<UserListAdapter.MyView
     @Override
     public void onBindViewHolder(@NonNull UserListAdapter.MyViewHolder holder, int position) {
         holder.tvFirstName.setText(this.userList.get(position).eventName);
-        holder.tvLastName.setText(this.userList.get(position).eventDate);
+        holder.tvLastName.setText(this.userList.get(position).object);
 
         holder.linearLayout.setOnClickListener(new View.OnClickListener() {
             @Override
