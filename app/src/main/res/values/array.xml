@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="font_size">
+        <item>OCZEKUJE_NA_REALIZACJE</item>
+        <item>ZAKOŃCZONO</item>
+        <item>BĘDZIE_KONTYNUOWANIE</item>
+        <item>W_TRAKCIE</item>
+    </string-array>
+</resources>
