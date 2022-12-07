@@ -2,6 +2,8 @@ package com.example.servicepanel;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.GradientDrawable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,6 +16,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.servicepanel.db.DataEvent;
 
 import java.util.List;
+import java.util.Random;
 
 public class UserListAdapter extends RecyclerView.Adapter<UserListAdapter.MyViewHolder> {
 
@@ -40,7 +43,12 @@ public class UserListAdapter extends RecyclerView.Adapter<UserListAdapter.MyView
     @Override
     public void onBindViewHolder(@NonNull UserListAdapter.MyViewHolder holder, int position) {
         holder.tvFirstName.setText(this.userList.get(position).eventName);
-        holder.tvLastName.setText(this.userList.get(position).dateStart);
+        holder.tvLastName.setText(this.userList.get(position).statusEvent);
+        holder.tvIcon.setText(this.userList.get(position).eventName.substring(0,1));
+
+        Random mRandom = new Random();
+        final int color = Color.argb(255,mRandom.nextInt(256),mRandom.nextInt(256),mRandom.nextInt(256));
+        ((GradientDrawable) holder.tvIcon.getBackground()).setColor(color);
 
         holder.linearLayout.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -60,6 +68,7 @@ public class UserListAdapter extends RecyclerView.Adapter<UserListAdapter.MyView
     public class MyViewHolder extends RecyclerView.ViewHolder{
         TextView tvFirstName;
         TextView tvLastName;
+        TextView tvIcon;
 
         LinearLayout linearLayout;
 
@@ -67,6 +76,7 @@ public class UserListAdapter extends RecyclerView.Adapter<UserListAdapter.MyView
             super(view);
             tvFirstName = view.findViewById(R.id.tvFirstName);
             tvLastName = view.findViewById(R.id.tvLastName);
+            tvIcon = view.findViewById(R.id.tvIcon);
             linearLayout = view.findViewById(R.id.linear_layout);
         }
     }
