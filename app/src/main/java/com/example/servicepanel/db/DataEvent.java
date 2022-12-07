@@ -4,6 +4,8 @@ import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
+import java.time.LocalDate;
+
 @Entity
 public class DataEvent {
     @PrimaryKey(autoGenerate = true)
@@ -23,6 +25,9 @@ public class DataEvent {
 
     @ColumnInfo(name = "status_Event")
     public String statusEvent;
+
+    @ColumnInfo(name = "Local_date_start")
+    public String dateStart;
 }
 
 

@@ -40,7 +40,7 @@ public class UserListAdapter extends RecyclerView.Adapter<UserListAdapter.MyView
     @Override
     public void onBindViewHolder(@NonNull UserListAdapter.MyViewHolder holder, int position) {
         holder.tvFirstName.setText(this.userList.get(position).eventName);
-        holder.tvLastName.setText(this.userList.get(position).object);
+        holder.tvLastName.setText(this.userList.get(position).dateStart);
 
         holder.linearLayout.setOnClickListener(new View.OnClickListener() {
             @Override
