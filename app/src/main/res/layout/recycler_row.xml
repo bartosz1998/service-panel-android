@@ -2,23 +2,51 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="vertical"
     android:id="@+id/linear_layout">
 
-    <TextView
-        android:id="@+id/tvFirstName"
+    <RelativeLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="05dp"
-        android:textColor="#000000"
-        android:textSize="22sp"
-        android:textStyle="bold"/>
-    <TextView
-        android:id="@+id/tvLastName"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="05dp"
-        android:textColor="#000000"
-        android:textSize="22sp"/>
+        android:padding="10dp">
 
+        <TextView
+            android:id="@+id/tvIcon"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="2dp"
+            android:background="@drawable/rounded_drawable"
+            android:gravity="center"
+            android:text="@string/a"
+            android:textColor="@android:color/white"
+            android:textSize="20sp"/>
+
+        <TextView
+            android:id="@+id/tvFirstName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="18dp"
+            android:layout_toEndOf="@+id/tvIcon"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tvLastName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tvFirstName"
+            android:layout_marginStart="18dp"
+            android:layout_marginTop="5dp"
+            android:layout_toEndOf="@+id/tvIcon"
+            android:textStyle="bold" />
+
+        <ImageView
+            android:id="@+id/ivFavorite"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="5dp"
+            android:layout_marginRight="10dp"
+            android:src="@drawable/ic_baseline_edit_24" />
+    </RelativeLayout>
 </LinearLayout>
