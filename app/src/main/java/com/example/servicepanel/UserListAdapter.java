@@ -42,8 +42,8 @@ public class UserListAdapter extends RecyclerView.Adapter<UserListAdapter.MyView
 
     @Override
     public void onBindViewHolder(@NonNull UserListAdapter.MyViewHolder holder, int position) {
-        holder.tvFirstName.setText(this.userList.get(position).eventName);
-        holder.tvLastName.setText(this.userList.get(position).statusEvent);
+        holder.tvEventName.setText(this.userList.get(position).eventName);
+        holder.tvStatusEvent.setText(this.userList.get(position).statusEvent);
         holder.tvIcon.setText(this.userList.get(position).eventName.substring(0,1));
 
         Random mRandom = new Random();
@@ -66,16 +66,16 @@ public class UserListAdapter extends RecyclerView.Adapter<UserListAdapter.MyView
     }
 
     public class MyViewHolder extends RecyclerView.ViewHolder{
-        TextView tvFirstName;
-        TextView tvLastName;
+        TextView tvEventName;
+        TextView tvStatusEvent;
         TextView tvIcon;
 
         LinearLayout linearLayout;
 
         public MyViewHolder(View view){
             super(view);
-            tvFirstName = view.findViewById(R.id.tvFirstName);
-            tvLastName = view.findViewById(R.id.tvLastName);
+            tvEventName = view.findViewById(R.id.tvEventName);
+            tvStatusEvent = view.findViewById(R.id.tvStatusEvent);
             tvIcon = view.findViewById(R.id.tvIcon);
             linearLayout = view.findViewById(R.id.linear_layout);
         }
