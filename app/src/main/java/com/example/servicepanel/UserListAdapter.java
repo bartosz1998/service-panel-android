@@ -55,6 +55,7 @@ public class UserListAdapter extends RecyclerView.Adapter<UserListAdapter.MyView
             public void onClick(View v) {
                 Intent intent = new Intent(context,ListAction.class);
                 intent.putExtra("value",userList.get(holder.getLayoutPosition()).statusEvent);
+                intent.putExtra("event_name",userList.get(holder.getLayoutPosition()).eventName);
                 context.startActivity(intent);
             }
         });

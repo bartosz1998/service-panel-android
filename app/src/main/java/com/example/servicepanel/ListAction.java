@@ -20,12 +20,15 @@ public class ListAction extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_list_action);
 
-
-
        TextView nameTxt = findViewById(R.id.textView2);
+       TextView nameTxt2 = findViewById(R.id.textEventName);
 
         Bundle bundle = getIntent().getExtras();
         String name = bundle.getString("value");
+
+        Bundle bundle1 = getIntent().getExtras();
+        String name2 = bundle1.getString("event_name");
+        nameTxt2.setText(name2);
 
         switch(name){
             case "OCZEKUJE NA REALIZACJE":
