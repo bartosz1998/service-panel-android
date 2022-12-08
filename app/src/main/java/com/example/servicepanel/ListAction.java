@@ -20,7 +20,7 @@ public class ListAction extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_list_action);
 
-       TextView nameTxt = findViewById(R.id.textView2);
+      // TextView nameTxt = findViewById(R.id.textView2);
        TextView nameTxt2 = findViewById(R.id.textEventName);
 
         Bundle bundle = getIntent().getExtras();
@@ -45,7 +45,7 @@ public class ListAction extends AppCompatActivity {
                 break;
         }
 
-        nameTxt.setText(name);
+        //nameTxt.setText(name);
 
 
         circular_pro=(ProgressBar) findViewById(R.id.progressbar_circular);
