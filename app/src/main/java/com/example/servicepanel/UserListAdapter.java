@@ -56,6 +56,9 @@ public class UserListAdapter extends RecyclerView.Adapter<UserListAdapter.MyView
                 Intent intent = new Intent(context,ListAction.class);
                 intent.putExtra("value",userList.get(holder.getLayoutPosition()).statusEvent);
                 intent.putExtra("event_name",userList.get(holder.getLayoutPosition()).eventName);
+                intent.putExtra("object",userList.get(holder.getLayoutPosition()).object);
+                intent.putExtra("object_address",userList.get(holder.getLayoutPosition()).objectAddress);
+                intent.putExtra("date_start",userList.get(holder.getLayoutPosition()).dateStart);
                 context.startActivity(intent);
             }
         });

@@ -20,15 +20,20 @@ public class ListAction extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_list_action);
 
-      // TextView nameTxt = findViewById(R.id.textView2);
-       TextView nameTxt2 = findViewById(R.id.textEventName);
+       TextView nameEventName = findViewById(R.id.textEventName);
+       TextView nameObject = findViewById(R.id.textObject);
+       TextView nameObjectAddress = findViewById(R.id.textObjectAddress);
+       TextView nameDateStart = findViewById(R.id.textDateStart);
 
         Bundle bundle = getIntent().getExtras();
         String name = bundle.getString("value");
 
-        Bundle bundle1 = getIntent().getExtras();
-        String name2 = bundle1.getString("event_name");
-        nameTxt2.setText(name2);
+        nameEventName.setText(bundle.getString("event_name"));
+        nameObject.setText(bundle.getString("object"));
+        nameObjectAddress.setText(bundle.getString("object_address"));
+        nameDateStart.setText(bundle.getString("date_start"));
+
+
 
         switch(name){
             case "OCZEKUJE NA REALIZACJE":
@@ -44,9 +49,6 @@ public class ListAction extends AppCompatActivity {
                 progressStatus = 75;
                 break;
         }
-
-        //nameTxt.setText(name);
-
 
         circular_pro=(ProgressBar) findViewById(R.id.progressbar_circular);
         status=(TextView) findViewById(R.id.text_status);
