@@ -78,6 +78,16 @@ public class UserListAdapter extends RecyclerView.Adapter<UserListAdapter.MyView
                 notifyDataSetChanged();
             }
         });
+
+        holder.ivUpdate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent2 = new Intent(context,EditList.class);
+                intent2.putExtra("id",String.valueOf(userList.get(holder.getLayoutPosition()).uid));
+                intent2.putExtra("data_start",String.valueOf(userList.get(holder.getLayoutPosition()).dateStart));
+                context.startActivity(intent2);
+            }
+        });
     }
 
     @Override
@@ -90,6 +100,7 @@ public class UserListAdapter extends RecyclerView.Adapter<UserListAdapter.MyView
         TextView tvStatusEvent;
         TextView tvIcon;
         ImageView ivFavorite;
+        ImageView ivUpdate;
 
         LinearLayout linearLayout;
 
@@ -100,6 +111,7 @@ public class UserListAdapter extends RecyclerView.Adapter<UserListAdapter.MyView
             tvIcon = view.findViewById(R.id.tvIcon);
             ivFavorite = view.findViewById(R.id.ivFavorite);
             linearLayout = view.findViewById(R.id.linear_layout);
+            ivUpdate = view.findViewById(R.id.ivUpdate);
         }
     }
 }

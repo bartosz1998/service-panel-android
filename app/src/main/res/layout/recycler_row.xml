@@ -39,13 +39,23 @@
             android:textStyle="bold" />
 
         <ImageView
+            android:id="@+id/ivUpdate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="5dp"
+            android:layout_marginRight="35dp"
+            android:src="@drawable/ic_baseline_edit_24" />
+
+        <ImageView
             android:id="@+id/ivFavorite"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
             android:layout_alignParentRight="true"
             android:layout_marginTop="5dp"
-            android:layout_marginRight="10dp"
+            android:layout_marginRight="0dp"
             android:src="@drawable/ic_baseline_delete_24" />
     </RelativeLayout>
 </LinearLayout>
