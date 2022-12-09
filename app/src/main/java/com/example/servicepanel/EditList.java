@@ -4,6 +4,7 @@ import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.room.Database;
 
+import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
@@ -68,7 +69,8 @@ public class EditList extends AppCompatActivity {
 
                     db.userDao().updateData(txtSaveEventName,txtSaveObject,txtSaveAddressObject,txtAutoComplete,dataStart,Integer.parseInt(id));
 
-                    finish();
+                    Intent intent = new Intent(EditList.this,ListActivity.class);
+                    startActivity(intent);
                 }
             }
         });
