@@ -7,12 +7,15 @@ import android.graphics.drawable.GradientDrawable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.servicepanel.db.AppDatabase;
 import com.example.servicepanel.db.DataEvent;
 
 import java.util.List;
@@ -62,6 +65,19 @@ public class UserListAdapter extends RecyclerView.Adapter<UserListAdapter.MyView
                 context.startActivity(intent);
             }
         });
+
+        holder.ivFavorite.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                AppDatabase db = AppDatabase.getDbInstance(holder.tvIcon.getContext());
+
+                db.userDao().deleteById(userList.get(holder.getLayoutPosition()).uid);
+
+                userList.remove(position);
+
+                notifyDataSetChanged();
+            }
+        });
     }
 
     @Override
@@ -73,6 +89,7 @@ public class UserListAdapter extends RecyclerView.Adapter<UserListAdapter.MyView
         TextView tvEventName;
         TextView tvStatusEvent;
         TextView tvIcon;
+        ImageView ivFavorite;
 
         LinearLayout linearLayout;
 
@@ -81,6 +98,7 @@ public class UserListAdapter extends RecyclerView.Adapter<UserListAdapter.MyView
             tvEventName = view.findViewById(R.id.tvEventName);
             tvStatusEvent = view.findViewById(R.id.tvStatusEvent);
             tvIcon = view.findViewById(R.id.tvIcon);
+            ivFavorite = view.findViewById(R.id.ivFavorite);
             linearLayout = view.findViewById(R.id.linear_layout);
         }
     }

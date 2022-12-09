@@ -5,8 +5,6 @@ import androidx.room.Delete;
 import androidx.room.Insert;
 import androidx.room.Query;
 
-import com.example.servicepanel.db.DataEvent;
-
 import java.util.List;
 
 @Dao
@@ -20,4 +18,7 @@ public interface UserDao {
 
     @Delete
     void delete (DataEvent dataEvent);
+
+    @Query("DELETE FROM DataEvent WHERE uid = :id")
+    void deleteById(int id);
 }
