@@ -100,37 +100,44 @@
                 android:textColorHint="#757575" />
         </com.google.android.material.textfield.TextInputLayout>
 
-        <Button
-            android:id="@+id/editButton"
-            android:layout_width="250dp"
-            android:layout_height="65dp"
-            android:textSize="20sp"
-            android:textAllCaps="false"
-            android:text="Dodaj"
-            android:layout_marginBottom="60dp"
-            android:backgroundTint="#0396FF"
-            android:radius="20dp"
-            android:textColor="@color/white"
-            app:layout_constraintBottom_toTopOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            android:layout_gravity="center"/>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_centerHorizontal="true">
 
-        <Button
-            android:id="@+id/stopButton"
-            android:layout_width="250dp"
-            android:layout_height="65dp"
-            android:textSize="20sp"
-            android:textAllCaps="false"
-            android:text="Zakończ"
-            android:layout_marginBottom="60dp"
-            android:backgroundTint="#0396FF"
-            android:radius="20dp"
-            android:textColor="@color/white"
-            app:layout_constraintBottom_toTopOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            android:layout_gravity="center"/>
+            <Button
+                android:id="@+id/editButton"
+                android:layout_width="140dp"
+                android:layout_height="65dp"
+                android:backgroundTint="#0396FF"
+                android:layout_marginRight="20dp"
+                android:layout_marginLeft="40dp"
+                android:radius="20dp"
+                android:text="Edytuj"
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+                android:textSize="20sp"
+                android:layout_toRightOf="@+id/stopButton"/>
+
+            <Button
+                android:id="@+id/stopButton"
+                android:layout_width="140dp"
+                android:layout_height="65dp"
+                android:backgroundTint="#0396FF"
+                android:layout_marginRight="40dp"
+                android:layout_marginLeft="20dp"
+                android:radius="20dp"
+                android:text="Zakończ"
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+                android:textSize="20sp"
+                android:layout_toRightOf="@+id/editButton"
+
+               />
+
+        </LinearLayout>
+
 
     </LinearLayout>
 
