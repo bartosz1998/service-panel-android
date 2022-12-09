@@ -44,7 +44,7 @@ public class UserListAdapter extends RecyclerView.Adapter<UserListAdapter.MyView
     public void onBindViewHolder(@NonNull UserListAdapter.MyViewHolder holder, int position) {
         holder.tvEventName.setText(this.userList.get(position).eventName);
         holder.tvStatusEvent.setText(this.userList.get(position).statusEvent);
-        holder.tvIcon.setText(this.userList.get(position).eventName.substring(0,1));
+        holder.tvIcon.setText(String.valueOf(this.userList.get(position).uid));
 
         Random mRandom = new Random();
         final int color = Color.argb(255,mRandom.nextInt(256),mRandom.nextInt(256),mRandom.nextInt(256));
