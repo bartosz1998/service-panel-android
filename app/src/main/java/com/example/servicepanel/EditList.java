@@ -36,7 +36,8 @@ public class EditList extends AppCompatActivity {
         EditText saveAddressObject = findViewById(R.id.saveAddressObject);
         autoCompleteTxt = findViewById(R.id.auto_complete_txt);
         Button update = findViewById(R.id.editButton);
-        
+        Button delete = findViewById(R.id.stopButton);
+
         adapterItems = new ArrayAdapter<String>(this,R.layout.list_item,items);
         autoCompleteTxt.setAdapter(adapterItems);
 
@@ -68,6 +69,18 @@ public class EditList extends AppCompatActivity {
                     Intent intent = new Intent(EditList.this,ListActivity.class);
                     startActivity(intent);
                 }
+            }
+        });
+
+        delete.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                AppDatabase db = AppDatabase.getDbInstance(getApplicationContext());
+                int idDelete = Integer.parseInt(id);
+                db.userDao().deleteById(idDelete);
+
+                Intent intent = new Intent(EditList.this,ListActivity.class);
+                startActivity(intent);
             }
         });
 
