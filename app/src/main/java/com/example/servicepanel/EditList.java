@@ -36,9 +36,7 @@ public class EditList extends AppCompatActivity {
         EditText saveAddressObject = findViewById(R.id.saveAddressObject);
         autoCompleteTxt = findViewById(R.id.auto_complete_txt);
         Button update = findViewById(R.id.editButton);
-
-
-
+        
         adapterItems = new ArrayAdapter<String>(this,R.layout.list_item,items);
         autoCompleteTxt.setAdapter(adapterItems);
 
@@ -48,8 +46,6 @@ public class EditList extends AppCompatActivity {
                 item = parent.getItemAtPosition(position).toString();
             }
         });
-
-
 
         String dataStart = getIntent().getExtras().getString("data_start");
         String id = getIntent().getExtras().getString("id");

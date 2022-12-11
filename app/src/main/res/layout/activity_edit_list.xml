@@ -100,43 +100,40 @@
                 android:textColorHint="#757575" />
         </com.google.android.material.textfield.TextInputLayout>
 
-        <LinearLayout
-            android:layout_width="wrap_content"
+        <RelativeLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_centerHorizontal="true">
+            android:layout_centerHorizontal="true"
+            android:gravity="center">
 
             <Button
                 android:id="@+id/editButton"
                 android:layout_width="140dp"
                 android:layout_height="65dp"
                 android:backgroundTint="#0396FF"
-                android:layout_marginRight="20dp"
-                android:layout_marginLeft="40dp"
                 android:radius="20dp"
                 android:text="Edytuj"
                 android:textAllCaps="false"
+                android:gravity="center"
                 android:textColor="@color/white"
                 android:textSize="20sp"
-                android:layout_toRightOf="@+id/stopButton"/>
+                android:layout_marginRight="15dp"/>
 
             <Button
                 android:id="@+id/stopButton"
                 android:layout_width="140dp"
                 android:layout_height="65dp"
                 android:backgroundTint="#0396FF"
-                android:layout_marginRight="40dp"
-                android:layout_marginLeft="20dp"
                 android:radius="20dp"
                 android:text="Zakończ"
                 android:textAllCaps="false"
                 android:textColor="@color/white"
                 android:textSize="20sp"
+                android:gravity="center"
                 android:layout_toRightOf="@+id/editButton"
+                android:layout_marginLeft="15dp"/>
 
-               />
-
-        </LinearLayout>
+        </RelativeLayout>
 
 
     </LinearLayout>
