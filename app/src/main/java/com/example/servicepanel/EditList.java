@@ -2,7 +2,6 @@ package com.example.servicepanel;
 
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.room.Database;
 
 import android.content.Intent;
 import android.os.Build;
@@ -16,9 +15,12 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.example.servicepanel.db.AppDatabase;
-import com.example.servicepanel.db.DataEvent;
 
-import java.util.List;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 
 public class EditList extends AppCompatActivity {
     String[] items = {"OCZEKUJE NA REALIZACJE","ZAKOŃCZONO","BĘDZIE KONTYNUOWANE","W TRAKCIE"};
@@ -36,7 +38,7 @@ public class EditList extends AppCompatActivity {
         EditText saveAddressObject = findViewById(R.id.saveAddressObject);
         autoCompleteTxt = findViewById(R.id.auto_complete_txt);
         Button update = findViewById(R.id.editButton);
-        Button delete = findViewById(R.id.stopButton);
+        Button stopButton = findViewById(R.id.stopButton);
 
         adapterItems = new ArrayAdapter<String>(this,R.layout.list_item,items);
         autoCompleteTxt.setAdapter(adapterItems);
@@ -49,6 +51,7 @@ public class EditList extends AppCompatActivity {
         });
 
         String dataStart = getIntent().getExtras().getString("data_start");
+        String dataStop = getIntent().getExtras().getString("date_stop");
         String id = getIntent().getExtras().getString("id");
 
         update.setOnClickListener(new View.OnClickListener() {
@@ -64,7 +67,7 @@ public class EditList extends AppCompatActivity {
                 }else{
                     AppDatabase db = AppDatabase.getDbInstance(getApplicationContext());
 
-                    db.userDao().updateData(txtSaveEventName,txtSaveObject,txtSaveAddressObject,txtAutoComplete,dataStart,Integer.parseInt(id));
+                    db.userDao().updateData(txtSaveEventName,txtSaveObject,txtSaveAddressObject,txtAutoComplete,dataStart,dataStop, Integer.parseInt(id));
 
                     Intent intent = new Intent(EditList.this,ListActivity.class);
                     startActivity(intent);
@@ -72,15 +75,34 @@ public class EditList extends AppCompatActivity {
             }
         });
 
-        delete.setOnClickListener(new View.OnClickListener() {
+        stopButton.setOnClickListener(new View.OnClickListener() {
+            @RequiresApi(api = Build.VERSION_CODES.O)
             @Override
             public void onClick(View v) {
-                AppDatabase db = AppDatabase.getDbInstance(getApplicationContext());
-                int idDelete = Integer.parseInt(id);
-                db.userDao().deleteById(idDelete);
+                String txtSaveEventName = saveEventName.getText().toString().trim();
+                String txtSaveObject = saveObject.getText().toString().trim();
+                String txtSaveAddressObject = saveAddressObject.getText().toString().trim();
+                String txtAutoComplete = autoCompleteTxt.getText().toString().trim();
 
-                Intent intent = new Intent(EditList.this,ListActivity.class);
-                startActivity(intent);
+                LocalDate valueDateStart = LocalDate.now();
+                DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd LLLL yyyy");
+                String formattedString = valueDateStart.format(formatter);
+
+                if(txtSaveEventName.equals("") || txtSaveObject.equals("") || txtSaveAddressObject.equals("")){
+                    AppDatabase db = AppDatabase.getDbInstance(getApplicationContext());
+                    int idStop = Integer.parseInt(id);
+                    db.userDao().updateDateStop(formattedString,idStop);
+
+                    Intent intent = new Intent(EditList.this,ListActivity.class);
+                    startActivity(intent);
+                }else{
+                    AppDatabase db = AppDatabase.getDbInstance(getApplicationContext());
+
+                    db.userDao().updateData(txtSaveEventName,txtSaveObject,txtSaveAddressObject,txtAutoComplete,dataStart,dataStop, Integer.parseInt(id));
+
+                    Intent intent = new Intent(EditList.this,ListActivity.class);
+                    startActivity(intent);
+                }
             }
         });
 

@@ -24,6 +24,7 @@ public class ListAction extends AppCompatActivity {
        TextView nameObject = findViewById(R.id.textObject);
        TextView nameObjectAddress = findViewById(R.id.textObjectAddress);
        TextView nameDateStart = findViewById(R.id.textDateStart);
+       TextView nameDateStop = findViewById(R.id.dateStop);
 
         Bundle bundle = getIntent().getExtras();
         String name = bundle.getString("value");
@@ -32,8 +33,7 @@ public class ListAction extends AppCompatActivity {
         nameObject.setText(bundle.getString("object"));
         nameObjectAddress.setText(bundle.getString("object_address"));
         nameDateStart.setText(bundle.getString("date_start"));
-
-
+        nameDateStop.setText(bundle.getString("date_stop"));
 
         switch(name){
             case "OCZEKUJE NA REALIZACJE":

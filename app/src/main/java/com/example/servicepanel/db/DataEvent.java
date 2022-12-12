@@ -28,6 +28,9 @@ public class DataEvent {
 
     @ColumnInfo(name = "Local_date_start")
     public String dateStart;
+
+    @ColumnInfo(name = "Local_date_stop")
+    public String dateStop;
 }
 
 

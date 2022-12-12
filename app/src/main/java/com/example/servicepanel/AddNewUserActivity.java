@@ -54,14 +54,15 @@ public class AddNewUserActivity extends AppCompatActivity {
                 LocalDate valueDateStart = LocalDate.now();
                 DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd LLLL yyyy");
                 String formattedString = valueDateStart.format(formatter);
+                String dateStop = "Nie określono";
 
-                saveNewUser(saveNameEvent.getText().toString(), item,saveObject.getText().toString(),saveAddressObject.getText().toString(),formattedString);
+                saveNewUser(saveNameEvent.getText().toString(), item,saveObject.getText().toString(),saveAddressObject.getText().toString(), formattedString,dateStop);
             }
         });
 
     }
 
-    private void saveNewUser(String nameEvent, String statusEvent, String object, String addressObject,String DateStart){
+    private void saveNewUser(String nameEvent, String statusEvent, String object, String addressObject,String DateStart,String DateStop){
         AppDatabase db = AppDatabase.getDbInstance(this.getApplicationContext());
 
         DataEvent dataEvent = new DataEvent();
@@ -70,6 +71,7 @@ public class AddNewUserActivity extends AppCompatActivity {
         dataEvent.object = object;
         dataEvent.objectAddress = addressObject;
         dataEvent.dateStart = DateStart;
+        dataEvent.dateStop = DateStop;
         db.userDao().insertUser(dataEvent);
 
         finish();

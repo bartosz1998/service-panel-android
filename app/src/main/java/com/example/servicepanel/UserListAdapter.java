@@ -62,6 +62,7 @@ public class UserListAdapter extends RecyclerView.Adapter<UserListAdapter.MyView
                 intent.putExtra("object",userList.get(holder.getLayoutPosition()).object);
                 intent.putExtra("object_address",userList.get(holder.getLayoutPosition()).objectAddress);
                 intent.putExtra("date_start",userList.get(holder.getLayoutPosition()).dateStart);
+                intent.putExtra("date_stop", userList.get(holder.getLayoutPosition()).dateStop);
                 context.startActivity(intent);
             }
         });
@@ -70,7 +71,6 @@ public class UserListAdapter extends RecyclerView.Adapter<UserListAdapter.MyView
             @Override
             public void onClick(View v) {
                 AppDatabase db = AppDatabase.getDbInstance(holder.tvIcon.getContext());
-
                 db.userDao().deleteById(userList.get(holder.getLayoutPosition()).uid);
 
                 userList.remove(position);
