@@ -33,7 +33,7 @@ public class ListActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 //startActivityForResult(new Intent(ListActivity.this, AddNewUserActivity.class),100);
-                Intent intent = new Intent(ListActivity.this,AddNewUserActivity.class);
+                Intent intent = new Intent(ListActivity.this,AddNewActivity.class);
                 someActivityResultLauncher.launch(intent);
             }
         });

@@ -14,7 +14,7 @@ public interface UserDao {
     List<DataEvent> getAllUsers();
 
     @Insert
-    void insertUser(DataEvent... dataEvent);
+    void insert(DataEvent... dataEvent);
 
     @Delete
     void delete (DataEvent dataEvent);

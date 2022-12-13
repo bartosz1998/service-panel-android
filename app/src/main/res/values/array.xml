@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string-array name="font_size">
+    <string-array name="list_status">
         <item>OCZEKUJE_NA_REALIZACJE</item>
         <item>ZAKOŃCZONO</item>
         <item>BĘDZIE_KONTYNUOWANIE</item>

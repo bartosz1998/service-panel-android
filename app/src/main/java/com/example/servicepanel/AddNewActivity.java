@@ -17,36 +17,39 @@ import java.time.format.DateTimeFormatter;
 import com.example.servicepanel.db.AppDatabase;
 import com.example.servicepanel.db.DataEvent;
 
-public class AddNewUserActivity extends AppCompatActivity {
+public class AddNewActivity extends AppCompatActivity {
 
-    String[] items = {"OCZEKUJE NA REALIZACJE","ZAKOŃCZONO","BĘDZIE KONTYNUOWANE","W TRAKCIE"};
+    String[] items;
 
     AutoCompleteTextView autoCompleteTxt;
     ArrayAdapter<String> adapterItems;
     String item;
+
+    EditText saveNameEvent, saveObject, saveAddressObject;
+    Button saveButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_new_user);
 
-        final EditText saveNameEvent = findViewById(R.id.saveNameEvent);
-        final EditText saveObject = findViewById(R.id.saveObject);
-        final EditText saveAddressObject = findViewById(R.id.saveAddressObject);
+        items = getResources().getStringArray(R.array.list_status);
 
-        Button saveButton = findViewById(R.id.saveButton);
+        saveNameEvent = findViewById(R.id.saveNameEvent);
+        saveObject = findViewById(R.id.saveObject);
+        saveAddressObject = findViewById(R.id.saveAddressObject);
+
+        saveButton = findViewById(R.id.saveButton);
 
         autoCompleteTxt = findViewById(R.id.auto_complete_txt);
         adapterItems = new ArrayAdapter<String>(this,R.layout.list_item,items);
         autoCompleteTxt.setAdapter(adapterItems);
 
-        autoCompleteTxt.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                 item = parent.getItemAtPosition(position).toString();
-            }
-        });
+       listNameEvent();
+       saveDataButton();
+    }
 
+    protected  void saveDataButton(){
         saveButton.setOnClickListener(new View.OnClickListener() {
             @RequiresApi(api = Build.VERSION_CODES.O)
             @Override
@@ -59,7 +62,15 @@ public class AddNewUserActivity extends AppCompatActivity {
                 saveNewUser(saveNameEvent.getText().toString(), item,saveObject.getText().toString(),saveAddressObject.getText().toString(), formattedString,dateStop);
             }
         });
+    }
 
+    protected void listNameEvent(){
+        autoCompleteTxt.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                item = parent.getItemAtPosition(position).toString();
+            }
+        });
     }
 
     private void saveNewUser(String nameEvent, String statusEvent, String object, String addressObject,String DateStart,String DateStop){
@@ -72,7 +83,7 @@ public class AddNewUserActivity extends AppCompatActivity {
         dataEvent.objectAddress = addressObject;
         dataEvent.dateStart = DateStart;
         dataEvent.dateStop = DateStop;
-        db.userDao().insertUser(dataEvent);
+        db.userDao().insert(dataEvent);
 
         finish();
     }
