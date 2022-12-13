@@ -11,23 +11,25 @@ public class ListAction extends AppCompatActivity {
 
     private ProgressBar circular_pro;
     private TextView status;
+    TextView nameEventName, nameObject, nameObjectAddress, nameDateStart, nameDateStop;
+    Bundle bundle;
+    String name;
 
     private int progressStatus ;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_list_action);
 
-       TextView nameEventName = findViewById(R.id.textEventName);
-       TextView nameObject = findViewById(R.id.textObject);
-       TextView nameObjectAddress = findViewById(R.id.textObjectAddress);
-       TextView nameDateStart = findViewById(R.id.textDateStart);
-       TextView nameDateStop = findViewById(R.id.dateStop);
+       nameEventName = findViewById(R.id.textEventName);
+       nameObject = findViewById(R.id.textObject);
+       nameObjectAddress = findViewById(R.id.textObjectAddress);
+       nameDateStart = findViewById(R.id.textDateStart);
+       nameDateStop = findViewById(R.id.dateStop);
 
-        Bundle bundle = getIntent().getExtras();
-        String name = bundle.getString("value");
+        bundle = getIntent().getExtras();
+        name = bundle.getString("value");
 
         nameEventName.setText(bundle.getString("event_name"));
         nameObject.setText(bundle.getString("object"));
@@ -35,26 +37,29 @@ public class ListAction extends AppCompatActivity {
         nameDateStart.setText(bundle.getString("date_start"));
         nameDateStop.setText(bundle.getString("date_stop"));
 
-        switch(name){
-            case "OCZEKUJE NA REALIZACJE":
-                progressStatus = 25;
-                break;
-            case "ZAKOŃCZONO":
-                progressStatus = 100;
-                break;
-            case "BĘDZIE KONTYNUOWANE":
-                progressStatus = 50;
-                break;
-            case "W TRAKCIE":
-                progressStatus = 75;
-                break;
-        }
-
         circular_pro=(ProgressBar) findViewById(R.id.progressbar_circular);
         status=(TextView) findViewById(R.id.text_status);
 
-        circular_pro.setProgress(progressStatus);
-        status.setText(progressStatus+"%");
+        statusEventValue();
+
     }
 
+    protected void statusEventValue(){
+
+        if(name.equals(getResources().getString(R.string.wait_event))){
+            progressStatus = 25;
+        }else if(name.equals(getResources().getString(R.string.end_event))){
+            progressStatus = 100;
+        }else if(name.equals(getResources().getString(R.string.continue_event))){
+            progressStatus = 50;
+        }else if(name.equals(getResources().getString(R.string.now_event))){
+            progressStatus = 75;
+        }else{
+            progressStatus = 0;
+        }
+
+        circular_pro.setProgress(progressStatus);
+        status.setText(progressStatus+"%");
+
+    }
 }
