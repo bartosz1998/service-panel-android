@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string-array name="list_status">
-        <item>OCZEKUJE_NA_REALIZACJE</item>
+        <item>OCZEKUJE NA REALIZACJE</item>
         <item>ZAKOŃCZONO</item>
-        <item>BĘDZIE_KONTYNUOWANIE</item>
-        <item>W_TRAKCIE</item>
+        <item>BĘDZIE KONTYNUOWANE</item>
+        <item>W TRAKCIE</item>
     </string-array>
 </resources>
