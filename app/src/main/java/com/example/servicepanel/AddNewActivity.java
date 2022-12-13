@@ -23,7 +23,7 @@ public class AddNewActivity extends AppCompatActivity {
 
     AutoCompleteTextView autoCompleteTxt;
     ArrayAdapter<String> adapterItems;
-    String item;
+    String item, dateStop;
 
     EditText saveNameEvent, saveObject, saveAddressObject;
     Button saveButton;
@@ -34,6 +34,7 @@ public class AddNewActivity extends AppCompatActivity {
         setContentView(R.layout.activity_add_new_user);
 
         items = getResources().getStringArray(R.array.list_status);
+        dateStop = getResources().getString(R.string.date_stop);
 
         saveNameEvent = findViewById(R.id.saveNameEvent);
         saveObject = findViewById(R.id.saveObject);
@@ -57,7 +58,6 @@ public class AddNewActivity extends AppCompatActivity {
                 LocalDate valueDateStart = LocalDate.now();
                 DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd LLLL yyyy");
                 String formattedString = valueDateStart.format(formatter);
-                String dateStop = "Nie określono";
 
                 saveNewUser(saveNameEvent.getText().toString(), item,saveObject.getText().toString(),saveAddressObject.getText().toString(), formattedString,dateStop);
             }
