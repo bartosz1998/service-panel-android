@@ -40,19 +40,18 @@ public class ListAction extends AppCompatActivity {
         circular_pro=(ProgressBar) findViewById(R.id.progressbar_circular);
         status=(TextView) findViewById(R.id.text_status);
 
-        statusEventValue();
+        statusEventValue(name);
 
     }
 
-    protected void statusEventValue(){
-
-        if(name.equals(getResources().getString(R.string.wait_event))){
+    protected void statusEventValue(String name1){
+        if(name1.equals(getResources().getString(R.string.wait_event))){
             progressStatus = 25;
-        }else if(name.equals(getResources().getString(R.string.end_event))){
+        }else if(name1.equals(getResources().getString(R.string.end_event))){
             progressStatus = 100;
-        }else if(name.equals(getResources().getString(R.string.continue_event))){
+        }else if(name1.equals(getResources().getString(R.string.continue_event))){
             progressStatus = 50;
-        }else if(name.equals(getResources().getString(R.string.now_event))){
+        }else if(name1.equals(getResources().getString(R.string.now_event))){
             progressStatus = 75;
         }else{
             progressStatus = 0;
@@ -61,5 +60,9 @@ public class ListAction extends AppCompatActivity {
         circular_pro.setProgress(progressStatus);
         status.setText(progressStatus+"%");
 
+    }
+
+    public int add (int numberA, int numberB){
+        return numberA + numberB;
     }
 }
