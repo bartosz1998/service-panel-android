@@ -22,25 +22,30 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 public class ListActivity extends AppCompatActivity {
     private UserListAdapter userListAdapter;
+    FloatingActionButton addNewListButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.list_activity);
 
-        FloatingActionButton addNewUserButton = findViewById(R.id.addNewUserButton);
-        addNewUserButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                //startActivityForResult(new Intent(ListActivity.this, AddNewUserActivity.class),100);
-                Intent intent = new Intent(ListActivity.this,AddNewActivity.class);
-                someActivityResultLauncher.launch(intent);
-            }
-        });
+        addNewListButton = findViewById(R.id.addNewUserButton);
+
+        addNewList();
 
         initRecyclerView();
 
         loadUserList();
+    }
+
+    protected void addNewList(){
+        addNewListButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(ListActivity.this,AddNewActivity.class);
+                someActivityResultLauncher.launch(intent);
+            }
+        });
     }
 
     private void initRecyclerView(){
